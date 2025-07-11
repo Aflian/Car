@@ -83,20 +83,14 @@ class ProfileResource extends Resource
     {
         return $table->columns([
             TextColumn::make('user.name')
-                ->label('Nama Pengguna')
-                ->searchable(),
-
+                ->label('Nama Pengguna'),
             TextColumn::make('username')
-                ->label('Username')
-                ->searchable(),
-
+                ->label('Username'),
                 TextColumn::make('jenis_kelamin')
                 ->label('Jenis Kelamin')
                 ->formatStateUsing(function ($state) {
                     return $state === 'L' ? 'Laki-laki' : 'Perempuan';
                 }),
-
-
             TextColumn::make('no_hp')
                 ->label('No. HP')
                 ->searchable(),
@@ -135,6 +129,7 @@ class ProfileResource extends Resource
                 ->sortable()
                 ->toggleable(isToggledHiddenByDefault: true),
         ]);
+        
     }
 
     public static function getRelations(): array
